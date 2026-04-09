@@ -147,7 +147,7 @@ const PursuitCard = () => {
             GitHub
           </a>
           <a
-            href="/Portfolio/Pursuit_Portfolio_final.pdf"
+            href="Pursuit_Portfolio_final.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2 border border-[#7B5EA7] text-[#7B5EA7] rounded-md text-sm font-medium hover:bg-[#F3EEFF] transition-colors"
@@ -185,14 +185,6 @@ const ProjectCard = ({
   </div>
 );
 
-const otherProjects = [
-  {
-    title: 'EduShare',
-    description:
-      'Collaborative e-learning platform offering video and text resources for remote learners. Worked on frontend integration and platform structure.',
-    technologies: ['React', 'JavaScript', 'CSS'],
-  },
-];
 
 const Projects = () => {
   return (
@@ -203,9 +195,6 @@ const Projects = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <PursuitCard />
-          {otherProjects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
-          ))}
         </div>
       </div>
     </section>
