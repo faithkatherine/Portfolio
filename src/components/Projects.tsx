@@ -182,7 +182,7 @@ const Projects = () => {
                 {project.visual === "pursuit" ? (
                   <div className="overflow-hidden rounded-lg border border-black/[0.04] bg-white shadow-paper">
                     <iframe
-                      src="/Pursuit UI Kit (standalone).html"
+                      src="/Portfolio/Pursuit UI Kit (standalone).html"
                       className="h-[430px] w-full"
                       title="Pursuit UI kit horizontal gallery"
                       style={{ border: "none" }}
