@@ -99,7 +99,7 @@ const projects = [
     cta: "View timeline context",
     href: "#experience",
     visual: "image",
-    image: "/reaction-power-systems-visual.png",
+    image: "/Portfolio/reaction-power-systems-visual.png",
     imageAlt:
       "Abstract backend systems visual with API blocks, service cards, data layer, and analytics widgets.",
   },
