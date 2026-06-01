@@ -94,27 +94,6 @@ const Hero = () => {
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.32 }}
-            className="grid max-w-2xl grid-cols-3 gap-4 border-t border-[#20201F]/10 pt-7"
-          >
-            {[
-              ["3+", "Years building"],
-              ["10+", "Product surfaces"],
-              ["Nairobi", "Global teams"],
-            ].map(([value, label]) => (
-              <div key={label}>
-                <p className="text-3xl font-bold text-[#20201F]">
-                  {value}
-                </p>
-                <p className="mt-1 text-sm font-semibold text-[#6F6A64]">
-                  {label}
-                </p>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
         <motion.div

@@ -3,6 +3,37 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
+const stats = [
+  {
+    number: "3+",
+    label: "years experience",
+    detail:
+      "Production work across digital health, content strategy, client delivery, and independent product building.",
+    className: "md:col-span-2",
+  },
+  {
+    number: "10+",
+    label: "shipped projects",
+    detail:
+      "Mobile flows, GraphQL features, analytics instrumentation, dashboards, and end-to-end product experiments.",
+    className: "",
+  },
+  {
+    number: "E2E",
+    label: "ownership",
+    detail:
+      "Comfortable moving from product question to schema, API, UI, deployment, QA, and iteration.",
+    className: "",
+  },
+  {
+    number: "Mobile -> Backend",
+    label: "product engineering",
+    detail:
+      "React Native interfaces, Apollo/GraphQL integrations, Django services, PostgreSQL data models, and delivery workflows.",
+    className: "md:col-span-2",
+  },
+];
+
 const projects = [
   {
     eyebrow: "Flagship product",
@@ -76,8 +107,50 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="work" className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-12">
+    <>
+      <section id="snapshot" className="bg-[#FAFAF8] py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="section-kicker">Experience snapshot</p>
+              <h2 className="mt-4 text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.98] text-[#20201F]">
+                The range to shape, build, and ship.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-xl leading-relaxed text-[#55514C]">
+              I work best where product judgment and engineering execution meet:
+              clarifying the value, designing the system, building the
+              experience, and iterating with real constraints in mind.
+            </p>
+          </div>
+
+          <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {stats.map((stat, index) => (
+              <motion.article
+                key={stat.label}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className={`rounded-xl border border-black/[0.05] bg-white/82 p-7 shadow-paper transition duration-300 hover:-translate-y-0.5 hover:shadow-paper-hover ${stat.className}`}
+              >
+                <p className="gradient-text text-4xl font-bold leading-tight md:text-5xl">
+                  {stat.number}
+                </p>
+                <h3 className="mt-5 text-2xl font-bold text-[#20201F]">
+                  {stat.label}
+                </h3>
+                <p className="mt-3 max-w-md leading-relaxed text-[#6F6A64]">
+                  {stat.detail}
+                </p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="work" className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="section-kicker">Featured work</p>
@@ -188,8 +261,9 @@ const Projects = () => {
             </motion.article>
           ))}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 };
 
