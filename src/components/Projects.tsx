@@ -55,7 +55,7 @@ const projects = [
       "Render",
     ],
     cta: "Open Pursuit Case Study",
-    href: "/pursuit-case-study.pdf",
+    href: "/Portfolio/pursuit-case-study.pdf",
     visual: "pursuit",
   },
   {
@@ -81,7 +81,7 @@ const projects = [
     cta: "View timeline context",
     href: "#experience",
     visual: "image",
-    image: "/wone-product-visual.png",
+    image: "/Portfolio/wone-product-visual.png",
     imageAlt:
       "Abstract mobile wellness product visual with app screens, completion metrics, and delivery flow cards.",
   },
