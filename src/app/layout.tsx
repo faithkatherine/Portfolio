@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Faith Catherine Otieno - Software Engineer",
-  description: "Fullstack Software Engineer specializing in React, React Native, Django, and GraphQL",
+  title: "Faith Catherine Otieno | Full-Stack Engineer",
+  description:
+    "Portfolio for Faith Catherine Otieno, a full-stack engineer and product builder working across React Native, Django, GraphQL, and mobile-first products.",
 };
 
 export default function RootLayout({

@@ -1,51 +1,66 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+
+const links = [
+  {
+    label: "Email",
+    href: "mailto:faithcathy12@gmail.com",
+    icon: FaEnvelope,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/faithkatherine",
+    icon: FaGithub,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/faith-catherine-otieno-92b708199",
+    icon: FaLinkedin,
+  },
+];
 
 const Contact = () => {
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900"
-    >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8">
-          Let&apos;s Connect
-        </h2>
-        <p className="text-xl text-white/80 mb-12">
-          Available for freelance projects and full-time opportunities
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <a
-            href="mailto:faithcathy12@gmail.com"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-white text-gray-900 rounded-lg text-lg font-bold hover:shadow-2xl transition-all transform hover:scale-105"
-          >
-            <FaEnvelope className="h-5 w-5" />
-            <span>faithcathy12@gmail.com</span>
-          </a>
-          <a
-            href="https://github.com/faithkatherine"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 text-white border-2 border-white rounded-lg text-lg font-bold hover:bg-white/20 transition-all"
-          >
-            <FaGithub className="h-5 w-5" />
-            <span>GitHub</span>
-          </a>
-          <a
-            href="https://linkedin.com/in/faith-catherine-otieno-92b708199"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 px-8 py-4 bg-white/10 text-white border-2 border-white rounded-lg text-lg font-bold hover:bg-white/20 transition-all"
-          >
-            <FaLinkedin className="h-5 w-5" />
-            <span>LinkedIn</span>
-          </a>
-        </div>
-        <div className="mt-16 text-white/60 text-sm">
-          <p>
-            © 2026 Faith Catherine Otieno. Built with Next.js & Tailwind CSS.
+    <section id="contact" className="bg-[#20201F] px-4 py-6">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[#FAFAF8] px-6 py-20 shadow-paper-hover lg:px-12 lg:py-24">
+        <div className="absolute -right-20 -top-24 h-80 w-80 rounded-[3rem] bg-gradient-to-br from-[#FF8A65] via-[#FF7597] to-[#9C6FDE] opacity-25 blur-3xl" />
+        <div className="absolute -bottom-24 left-12 h-64 w-44 rotate-12 rounded-[3rem] bg-gradient-to-br from-[#FFC06B] to-[#FF87C3] opacity-20 blur-2xl" />
+
+        <div className="relative max-w-4xl">
+          <p className="section-kicker">Contact</p>
+          <h2 className="mt-5 text-[clamp(3rem,8vw,6.8rem)] font-bold leading-[0.96] text-[#20201F]">
+            Let&apos;s build something meaningful.
+          </h2>
+          <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[#55514C]">
+            I am open to full-time product engineering roles, thoughtful
+            freelance builds, and collaborations where the problem is worth
+            caring about.
           </p>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+            {links.map(({ label, href, icon: Icon }, index) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={`inline-flex items-center justify-center gap-3 rounded-xl px-6 py-4 text-base font-bold transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 ${
+                  index === 0
+                    ? "gradient-button text-white shadow-soft-glow focus:ring-[#FF87C3]/30"
+                    : "border border-black/[0.05] bg-white text-[#20201F] shadow-paper hover:shadow-paper-hover focus:ring-[#20201F]/10"
+                }`}
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative mt-16 flex flex-col gap-3 border-t border-[#20201F]/10 pt-6 text-sm font-semibold text-[#6F6A64] sm:flex-row sm:items-center sm:justify-between">
+          <p>Faith Catherine Otieno</p>
+          <p>Built with Next.js, Tailwind CSS, and a product-builder bias.</p>
         </div>
       </div>
     </section>
