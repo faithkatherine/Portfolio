@@ -7,16 +7,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { href: 'https://github.com/faithkatherine', label: 'GitHub' },
-    { href: 'mailto:faithcathy12@gmail.com', label: 'Contact' },
+    { href: '#pursuit', label: 'Pursuit' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-sm z-50 shadow-sm">
+    <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-800">
+            <Link href="/" className="text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Faith Catherine
             </Link>
           </div>
@@ -27,7 +28,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-gray-600 hover:text-gray-900 transition-colors"
+                className="text-gray-700 hover:text-purple-600 transition-colors font-semibold"
               >
                 {item.label}
               </Link>

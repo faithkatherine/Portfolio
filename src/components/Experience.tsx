@@ -1,74 +1,56 @@
 'use client';
 
-const ExperienceItem = ({
-  title,
-  company,
-  period,
-  points,
-}: {
-  title: string;
-  company: string;
-  period: string;
-  points: string[];
-}) => (
-  <div className="mb-8">
-    <h3 className="text-xl font-semibold text-gray-900">{title}</h3>
-    <p className="text-gray-600 mb-2">
-      {company} | {period}
-    </p>
-    <ul className="list-disc list-inside space-y-2 text-gray-600">
-      {points.map((point, index) => (
-        <li key={index} className="ml-4">{point}</li>
-      ))}
-    </ul>
-  </div>
-);
+const experiences = [
+  {
+    company: 'Walking on Earth (WONE)',
+    period: '2023-2025',
+    description:
+      'UK digital health platform. Feature lead on the mobile team - owned the mindfulness session module end to end, from product spec to React Native delivery. Worked in a distributed team across Nairobi and London.',
+    color: 'from-orange-400 to-pink-400',
+  },
+  {
+    company: 'Pursuit HQ',
+    period: '2024-present',
+    description: 'Sole proprietorship. Building Pursuit.',
+    color: 'from-purple-400 to-pink-400',
+  },
+  {
+    company: 'Reaction Power',
+    period: '2023',
+    description: 'Python recommendation engine. GA4 and Looker Studio analytics.',
+    color: 'from-pink-400 to-orange-300',
+  },
+  {
+    company: 'Nifty Works via Andela',
+    period: '2022-2023',
+    description: 'Full-stack development on client products.',
+    color: 'from-purple-300 to-purple-500',
+  },
+];
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Software Engineer",
-      company: "Walking on Earth",
-      period: "Oct 2023 – July 2025",
-      points: [
-        "Built and maintained features for the WONE web platform and mobile app using React, React Native, Django, and GraphQL.",
-        "Integrated analytics using Firebase and Mixpanel.",
-        "Used Sentry to enhance error tracking and debugging workflows.",
-        "Contributed to website revamps and frontend improvements using ReactJS and Tailwind CSS.",
-        "Leveraged AI tools like GitHub Copilot and ChatGPT to write code faster, improve developer workflows, and assist in documentation.",
-        "Collaborated with engineers to reduce technical debt, refactor code, and boost performance."
-      ]
-    },
-    {
-      title: "Software Engineer",
-      company: "Nifty Works (Andela Bridge Program)",
-      period: "Oct 2022 – Apr 2023",
-      points: [
-        "Co-developed a fullstack Video-on-Demand platform using Angular, Django, REST APIs, and Google Cloud Platform.",
-        "Co-developed backend architecture tasks, including database schema design and cloud media handling."
-      ]
-    },
-    {
-      title: "Developer & Data Analyst",
-      company: "Reaction Power",
-      period: "Apr 2023 – Dec 2023",
-      points: [
-        "Managed website and blog content via WordPress with SEO enhancements.",
-        "Produced executive-level insights through data visualization and Google Analytics.",
-        "Conducted social listening research and supported strategic content initiatives."
-      ]
-    }
-  ];
-
   return (
     <section id="experience" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-          Professional Experience
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-12 text-center">
+          Experience
         </h2>
-        <div className="space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {experiences.map((exp, index) => (
-            <ExperienceItem key={index} {...exp} />
+            <div
+              key={index}
+              className={`bg-gradient-to-br ${exp.color} rounded-2xl p-8 text-white shadow-xl hover:shadow-2xl transition-all transform hover:scale-105`}
+            >
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-2xl font-bold">{exp.company}</h3>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">
+                  {exp.period}
+                </span>
+              </div>
+              <p className="text-white/90 leading-relaxed text-lg">
+                {exp.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>
