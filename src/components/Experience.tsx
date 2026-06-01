@@ -1,30 +1,31 @@
-'use client';
+"use client";
 
 const experiences = [
   {
-    company: 'Walking on Earth (WONE)',
-    period: '2023-2025',
+    company: "Walking on Earth (WONE)",
+    period: "2023-2025",
     description:
-      'UK digital health platform. Feature lead on the mobile team - owned the mindfulness session module end to end, from product spec to React Native delivery. Worked in a distributed team across Nairobi and London.',
-    color: 'from-orange-400 to-pink-400',
+      "UK digital health platform. Feature lead on the mobile team - owned the mindfulness session module end to end, from product spec to React Native delivery. Worked in a distributed team across Nairobi and London.",
+    color: "from-orange-400 to-pink-400",
   },
   {
-    company: 'Pursuit HQ',
-    period: '2024-present',
-    description: 'Sole proprietorship. Building Pursuit.',
-    color: 'from-purple-400 to-pink-400',
+    company: "Pursuit HQ",
+    period: "2024-present",
+    description: "Sole proprietorship. Building Pursuit.",
+    color: "from-purple-400 to-pink-400",
   },
   {
-    company: 'Reaction Power',
-    period: '2023',
-    description: 'Python recommendation engine. GA4 and Looker Studio analytics.',
-    color: 'from-pink-400 to-orange-300',
+    company: "Reaction Power",
+    period: "2023",
+    description:
+      "Python recommendation engine. GA4 and Looker Studio analytics.",
+    color: "from-pink-400 to-orange-300",
   },
   {
-    company: 'Nifty Works via Andela',
-    period: '2022-2023',
-    description: 'Full-stack development on client products.',
-    color: 'from-purple-300 to-purple-500',
+    company: "Nifty Works via Andela",
+    period: "2022-2023",
+    description: "Full-stack development on client products.",
+    color: "from-purple-300 to-purple-500",
   },
 ];
 

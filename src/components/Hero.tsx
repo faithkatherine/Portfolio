@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Text content */}
           <div className="text-left">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -26,8 +26,8 @@ const Hero = () => {
                 With 3+ years experience
               </p>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -49,15 +49,19 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="border-t border-gray-300 pt-6"
             >
-              <p className="text-sm text-gray-600 mb-3">Worked with companies</p>
+              <p className="text-sm text-gray-600 mb-3">
+                Worked with companies
+              </p>
               <div className="flex flex-wrap gap-6 items-center">
-                <span className="text-gray-700 font-semibold">Walking on Earth</span>
+                <span className="text-gray-700 font-semibold">
+                  Walking on Earth
+                </span>
                 <span className="text-gray-700 font-semibold">Pursuit HQ</span>
                 <span className="text-gray-700 font-semibold">Andela</span>
               </div>
@@ -65,7 +69,7 @@ const Hero = () => {
           </div>
 
           {/* Right column - Visual element / Photo placeholder */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -77,7 +81,9 @@ const Hero = () => {
                   <div className="w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <span className="text-white text-4xl font-bold">FC</span>
                   </div>
-                  <p className="text-gray-700 font-medium">Faith Catherine Otieno</p>
+                  <p className="text-gray-700 font-medium">
+                    Faith Catherine Otieno
+                  </p>
                 </div>
               </div>
               {/* Decorative badge */}

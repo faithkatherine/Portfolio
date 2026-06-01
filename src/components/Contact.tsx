@@ -1,10 +1,13 @@
-'use client';
+"use client";
 
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900">
+    <section
+      id="contact"
+      className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-pink-900"
+    >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8">
           Let&apos;s Connect
@@ -40,7 +43,9 @@ const Contact = () => {
           </a>
         </div>
         <div className="mt-16 text-white/60 text-sm">
-          <p>© 2026 Faith Catherine Otieno. Built with Next.js & Tailwind CSS.</p>
+          <p>
+            © 2026 Faith Catherine Otieno. Built with Next.js & Tailwind CSS.
+          </p>
         </div>
       </div>
     </section>

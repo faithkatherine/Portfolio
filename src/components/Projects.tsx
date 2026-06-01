@@ -1,38 +1,47 @@
-'use client';
+"use client";
 
 const stack = [
-  'React Native', 'TypeScript', 'Expo Router', 'Apollo Client',
-  'Django 5', 'Graphene-Django', 'GraphQL',
-  'PostgreSQL 17', 'Redis', 'Celery', 'Docker', 'Render IaC',
+  "React Native",
+  "TypeScript",
+  "Expo Router",
+  "Apollo Client",
+  "Django 5",
+  "Graphene-Django",
+  "GraphQL",
+  "PostgreSQL 17",
+  "Redis",
+  "Celery",
+  "Docker",
+  "Render IaC",
 ];
 
 const architectureDecisions = [
   {
-    title: 'Single aggregate GraphQL query for the home screen',
+    title: "Single aggregate GraphQL query for the home screen",
     content:
-      'The home screen has five data sources: editor\'s picks, trending, upcoming, categories, and personalised feed. On a mobile connection in Nairobi - often 3G - five network round trips is a broken product. One getHome query returns everything. Cold load under 800ms.',
+      "The home screen has five data sources: editor's picks, trending, upcoming, categories, and personalised feed. On a mobile connection in Nairobi - often 3G - five network round trips is a broken product. One getHome query returns everything. Cold load under 800ms.",
   },
   {
-    title: 'Redis cache-aside with user-scoped keys',
+    title: "Redis cache-aside with user-scoped keys",
     content:
-      'Home screen data is expensive to compute but changes slowly. User-scoped Redis keys mean the cache warms on first load and stays fast on return. TTL is tuned to event recency, not a generic 5-minute timeout.',
+      "Home screen data is expensive to compute but changes slowly. User-scoped Redis keys mean the cache warms on first load and stays fast on return. TTL is tuned to event recency, not a generic 5-minute timeout.",
   },
   {
-    title: 'Location as a string tag, not a City FK',
+    title: "Location as a string tag, not a City FK",
     content:
       'Nairobi events don\'t map cleanly to administrative boundaries. "Westlands" is a neighbourhood, a nightlife zone, and a commercial district - none of which match any official geodata. A location_tag string let me ship faster and gave curators flexibility that a City model never would.',
   },
   {
-    title: 'EditorsPick as a separate model with a required curator_note',
+    title: "EditorsPick as a separate model with a required curator_note",
     content:
-      'The "Editor\'s Pick" badge needs to mean something. A boolean flag on an Event model is meaningless - a second model with a required curator_note field forces accountability. The badge can\'t be set accidentally. Editorial integrity is enforced at the schema level.',
+      "The \"Editor's Pick\" badge needs to mean something. A boolean flag on an Event model is meaningless - a second model with a required curator_note field forces accountability. The badge can't be set accidentally. Editorial integrity is enforced at the schema level.",
   },
 ];
 
 const stats = [
-  { number: '3+', label: 'Years of experience' },
-  { number: '10+', label: 'Projects completed' },
-  { number: '100%', label: 'Solo built Pursuit' },
+  { number: "3+", label: "Years of experience" },
+  { number: "10+", label: "Projects completed" },
+  { number: "100%", label: "Solo built Pursuit" },
 ];
 
 const Projects = () => {
@@ -49,19 +58,25 @@ const Projects = () => {
                     {stat.number}
                   </span>
                 </div>
-                <p className="text-gray-700 font-semibold text-lg">{stat.label}</p>
+                <p className="text-gray-700 font-semibold text-lg">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
-          
+
           <div className="mt-16 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-              Over <span className="text-purple-600">three years</span> of building,
+              Over <span className="text-purple-600">three years</span> of
+              building,
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed">
-              I transform concepts into unique products using{' '}
-              <span className="text-purple-600 font-semibold">creativity</span> and{' '}
-              <span className="text-pink-500 font-semibold">modern tech stacks</span>{' '}
+              I transform concepts into unique products using{" "}
+              <span className="text-purple-600 font-semibold">creativity</span>{" "}
+              and{" "}
+              <span className="text-pink-500 font-semibold">
+                modern tech stacks
+              </span>{" "}
               worldwide.
             </p>
           </div>
@@ -74,11 +89,14 @@ const Projects = () => {
           <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
             Pursuit
           </h2>
-          
+
           {/* What it is */}
           <div className="mb-8">
             <p className="text-lg text-gray-700 leading-relaxed mb-4">
-              Pursuit is a hyperlocal event discovery app for Nairobi, Kenya. Editorial curation over an events database — think TimeOut, but actually maintained. Built solo from schema to shipped UI under Pursuit HQ, my registered sole proprietorship.
+              Pursuit is a hyperlocal event discovery app for Nairobi, Kenya.
+              Editorial curation over an events database — think TimeOut, but
+              actually maintained. Built solo from schema to shipped UI under
+              Pursuit HQ, my registered sole proprietorship.
             </p>
           </div>
 
@@ -106,7 +124,10 @@ const Projects = () => {
             </h3>
             <div className="space-y-8">
               {architectureDecisions.map((decision, i) => (
-                <div key={i} className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100">
+                <div
+                  key={i}
+                  className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100"
+                >
                   <h4 className="text-xl font-bold text-purple-700 mb-3">
                     {decision.title}
                   </h4>
@@ -123,7 +144,7 @@ const Projects = () => {
             <h3 className="text-3xl font-extrabold text-gray-900 mb-6">
               Screen showcase
             </h3>
-            
+
             {/* Embedded Pursuit UI Kit */}
             <div className="bg-gray-50 rounded-2xl p-8 mb-8">
               <div className="aspect-video w-full bg-white rounded-xl shadow-lg overflow-hidden">
@@ -131,11 +152,12 @@ const Projects = () => {
                   src="/Pursuit UI Kit (standalone).html"
                   className="w-full h-full"
                   title="Pursuit UI Kit"
-                  style={{ border: 'none' }}
+                  style={{ border: "none" }}
                 />
               </div>
               <p className="text-gray-600 text-center mt-4 italic">
-                Interactive Pursuit UI Kit - Explore the full mobile interface design
+                Interactive Pursuit UI Kit - Explore the full mobile interface
+                design
               </p>
             </div>
 
