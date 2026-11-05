@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap");
-@import "tailwindcss";
+/* Import Tailwind without preflight - TV styles provide their own reset */
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
 
 :root {
   --background: #fafaf8;
