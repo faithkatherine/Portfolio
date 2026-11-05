@@ -31,7 +31,7 @@ export default function ExperienceChannel() {
                   <span className="vhs-label-title">{item.company}</span>
                   <span className="vhs-label-date">{item.date}</span>
                 </span>
-                <span className="vhs-code">{tapeCodes[index]}</span>
+                <span className="vhs-code mono">{tapeCodes[index]}</span>
                 <span className="vhs-logo">VHS</span>
               </button>
             ))}
@@ -59,12 +59,12 @@ export default function ExperienceChannel() {
             <div className="sleeve-light">
               <div className="sleeve-top">
                 <span className="vhs-logo big">VHS</span>
-                <span className="font-tv-mono">{tapeCodes[experienceIndex]}</span>
+                <span className="mono">{tapeCodes[experienceIndex]}</span>
               </div>
               <h3>{role.company}</h3>
               <span className="sleeve-role">{role.role}</span>
 
-              <dl className="sleeve-specs">
+              <dl className="sleeve-specs mono">
                 <div>
                   <dt>YEARS</dt>
                   <dd>{role.date}</dd>
@@ -112,7 +112,7 @@ export default function ExperienceChannel() {
 
               <p className="tape-one-liner">{oneLiner}</p>
 
-              <span className="highlights-label">HIGHLIGHTS</span>
+              <span className="mono highlights-label">HIGHLIGHTS</span>
               <ul>
                 {highlights.map((bullet) => (
                   <li key={bullet}>{bullet}</li>

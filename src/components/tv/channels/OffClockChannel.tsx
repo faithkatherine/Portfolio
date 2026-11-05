@@ -69,7 +69,7 @@ export default function OffClockChannel() {
   return (
     <div className="offclock-channel h-full">
       <ChannelHeader eyebrow="06 / OFF THE CLOCK" title="Curiosity has many outlets." />
-      <span className="poster-label">Away from the keyboard</span>
+      <span className="mono poster-label">Away from the keyboard</span>
 
       <div className="billboard">
         <div className="poster-wall2">
@@ -92,7 +92,7 @@ export default function OffClockChannel() {
                 ))}
               </strong>
               <span className="poster-note">{interest.note}</span>
-              <span className="poster-burst">NOW SHOWING</span>
+              <span className="poster-burst mono">NOW SHOWING</span>
             </motion.button>
           ))}
         </div>

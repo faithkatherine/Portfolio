@@ -8,7 +8,7 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
   const ticker = 'NAIROBI, KENYA · REACT · REACT NATIVE · TYPESCRIPT · DJANGO · GRAPHQL · POSTGRESQL · REMOTE WITH UK & GLOBAL TEAMS · NOW BUILDING PURSUIT · ';
 
   return (
-    <div className="hello-windows">
+    <div className="hello-channel hello-windows">
       {/* Main window */}
       <div className="retro-window hello-window-main">
         <div className="retro-window-bar">
@@ -16,11 +16,11 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
           <span className="window-dots">— □ ×</span>
         </div>
         <div className="retro-window-body hello-main-body">
-          <span className="channel-eyebrow">01 / HELLO</span>
+          <span className="mono channel-eyebrow">01 / HELLO</span>
           <h2>Hello, I&apos;m Faith.</h2>
           <p>Full-stack engineer. I build products end to end, from the data model to the screen in your hand.</p>
 
-          <div className="hello-creds">
+          <div className="hello-creds mono">
             <span>PREVIOUSLY</span>
             <b>Feature Lead · Walking on Earth (UK)</b>
             <span>NOW</span>
@@ -28,7 +28,7 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
           </div>
 
           <div className="hello-shortcuts">
-            <span className="shortcut-label">JUMP TO A CHANNEL</span>
+            <span className="mono shortcut-label">JUMP TO A CHANNEL</span>
             <div>
               <button onClick={() => onTune?.(1)}><b>02</b> How I think</button>
               <button onClick={() => onTune?.(2)}><b>03</b> Building blocks</button>
@@ -71,15 +71,15 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
         <div className="hello-readme-body">
           <dl>
             <div>
-              <dt>STATUS</dt>
+              <dt className="mono">STATUS</dt>
               <dd>Open to: full-time · contract · partnerships</dd>
             </div>
             <div>
-              <dt>BASED</dt>
+              <dt className="mono">BASED</dt>
               <dd>Nairobi, Kenya · remote with UK &amp; global teams</dd>
             </div>
             <div>
-              <dt>CURRENTLY</dt>
+              <dt className="mono">CURRENTLY</dt>
               <dd>Building Pursuit · learning data engineering on AWS</dd>
             </div>
           </dl>
@@ -88,7 +88,7 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
       </div>
 
       {/* Ticker */}
-      <div className="hello-ticker" aria-label={ticker}>
+      <div className="hello-ticker mono" aria-label={ticker}>
         <div className="ticker-track" aria-hidden="true">
           <span>{ticker}</span>
           <span>{ticker}</span>

@@ -9,10 +9,10 @@ export default function ThinkChannel() {
   const opinion = opinions[opinionIndex];
 
   return (
-    <div className="think-split">
+    <div className="think-channel think-split">
       {/* Folder drawer */}
       <div className="folder-drawer" aria-label="How I think folders">
-        <span className="drawer-label">FIELD NOTES / 07</span>
+        <span className="mono drawer-label">FIELD NOTES / 07</span>
         <div className="shelf-files">
           {opinions.map((item, index) => (
             <button
@@ -56,12 +56,12 @@ export default function ThinkChannel() {
         aria-label={`${opinion.topic} engineering principle`}
       >
         <span className="paperclip" />
-        <span className="field-label">{String(opinionIndex + 1).padStart(2, '0')} {opinion.topic.toUpperCase()}</span>
+        <span className="mono field-label">{String(opinionIndex + 1).padStart(2, '0')} {opinion.topic.toUpperCase()}</span>
         <blockquote>&quot;{opinion.quote}&quot;</blockquote>
         <p>{opinion.body}</p>
 
         <div className="practice-block">
-          <span>IN PRACTICE</span>
+          <span className="mono">IN PRACTICE</span>
           <ul>
             {opinion.practice.map((item) => (
               <li key={item}>{item}</li>
@@ -91,7 +91,7 @@ export default function ThinkChannel() {
             </button>
           </div>
           <span className="faith-signoff">— Faith</span>
-          <span className="sheet-count">{String(opinionIndex + 1).padStart(2, '0')} / 07</span>
+          <span className="mono sheet-count">{String(opinionIndex + 1).padStart(2, '0')} / 07</span>
         </div>
 
         <div className="field-note-stamp">FIELD NOTE</div>

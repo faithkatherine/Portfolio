@@ -112,7 +112,7 @@ export default function BlocksChannel() {
                           background: piece.color,
                         }}
                       >
-                        {cellIndex === 0 && <em className="font-tv-mono">{blocks[index].code}</em>}
+                        {cellIndex === 0 && <em className="mono">{blocks[index].code}</em>}
                       </span>
                     ))}
                   </motion.button>
@@ -136,7 +136,7 @@ export default function BlocksChannel() {
               )}
             </div>
 
-            <span className={`product-label ${done ? 'show' : ''}`}>= A PRODUCT.</span>
+            <span className={`mono product-label ${done ? 'show' : ''}`}>= A PRODUCT.</span>
           </div>
 
           {/* Dozer */}
@@ -171,11 +171,11 @@ export default function BlocksChannel() {
 
         {/* Site plan */}
         <div className="site-plan">
-          <div className="site-plan-clip">SITE PLAN</div>
+          <div className="site-plan-clip mono">SITE PLAN</div>
           <div className="site-plan-body">
-            <span>LAYER {block.code} / 05</span>
+            <span className="mono">LAYER {block.code} / 05</span>
             <h3>{block.headline}</h3>
-            <span className="plan-name">{block.name.toUpperCase()}</span>
+            <span className="mono plan-name">{block.name.toUpperCase()}</span>
             <p>{block.text}</p>
 
             <div className="plan-progress" aria-label={`${builtCount} of 5 layers built`}>
@@ -192,7 +192,7 @@ export default function BlocksChannel() {
             </div>
 
             <div className="plan-actions">
-              <span className="block-hint">{done ? 'CLICK A BLOCK TO INSPECT' : 'BUILDING…'}</span>
+              <span className="mono block-hint">{done ? 'CLICK A BLOCK TO INSPECT' : 'BUILDING…'}</span>
               <button className="rebuild-button" onClick={rebuild}>
                 ↻ Rebuild
               </button>

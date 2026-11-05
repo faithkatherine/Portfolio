@@ -84,7 +84,7 @@ export default function ContactChannel() {
 
         {/* Call board */}
         <div className="call-board">
-          <span className="contact-label">THE OPEN CHANNEL</span>
+          <span className="mono contact-label">THE OPEN CHANNEL</span>
           <h2>Have a good problem?</h2>
           <p>
             I&apos;m always interested in thoughtful products, kind teams, and systems that make somebody&apos;s
@@ -107,14 +107,14 @@ export default function ContactChannel() {
                 }`}
               >
                 <span className="line-light" />
-                <span className="font-tv-mono">LINE {line.n}</span>
+                <span className="mono">LINE {line.n}</span>
                 <span className="line-name">{line.label}</span>
                 <span className="line-arrow">↗</span>
               </a>
             ))}
           </div>
 
-          <span className="contact-signoff">NICE TO MEET YOU</span>
+          <span className="mono contact-signoff">NICE TO MEET YOU</span>
         </div>
       </div>
     </div>

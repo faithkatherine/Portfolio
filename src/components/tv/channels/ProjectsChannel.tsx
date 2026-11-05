@@ -18,7 +18,7 @@ export default function ProjectsChannel() {
       <div className="projects-split">
         {/* CD rack */}
         <div className="cd-rack2" role="tablist" aria-label="Projects">
-          <span className="rack-label">RACK / 04</span>
+          <span className="mono rack-label">RACK / 04</span>
           <div className="cd-rack-row">
             {projects.map((item, index) => (
               <button
@@ -32,7 +32,7 @@ export default function ProjectsChannel() {
                 }}
               >
                 <span className="cd-spine-title">{item.label}</span>
-                <small>{item.status}</small>
+                <small className="mono">{item.status}</small>
               </button>
             ))}
           </div>
@@ -57,7 +57,7 @@ export default function ProjectsChannel() {
 
               <div className="jewel-inner">
                 <div className={`jewel-art art-${projectIndex}`}>
-                  <div className="art-top">
+                  <div className="art-top mono">
                     <span>{project.kicker}</span>
                     <span className="art-status">{project.status}</span>
                   </div>
@@ -71,11 +71,11 @@ export default function ProjectsChannel() {
                 </div>
 
                 <div className="jewel-tracks">
-                  <span className="tracklist-label">TRACKLIST</span>
+                  <span className="mono tracklist-label">TRACKLIST</span>
                   <ol>
                     {project.features.map((feature, i) => (
                       <li key={`${feature}-${i}`}>
-                        <span className="font-tv-mono">{String(i + 1).padStart(2, '0')}</span>
+                        <span className="mono">{String(i + 1).padStart(2, '0')}</span>
                         {feature}
                       </li>
                     ))}
@@ -105,7 +105,7 @@ export default function ProjectsChannel() {
               <div className="progress-bar">
                 <span style={{ width: playing ? '68%' : '18%' }} />
               </div>
-              <span className="track-time">{playing ? '02:41' : '00:37'} / 03:58</span>
+              <span className="mono track-time">{playing ? '02:41' : '00:37'} / 03:58</span>
             </div>
           </motion.div>
         </AnimatePresence>
