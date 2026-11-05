@@ -23,6 +23,8 @@ export default function ChannelScreen({ channel, isTuning, isPowered, onTune }: 
   const canvasRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [canvasWidth, setCanvasWidth] = useState<number>(CANVAS_SIZE.minWidth);
+  const [canvasLeft, setCanvasLeft] = useState(0);
+  const [canvasTop, setCanvasTop] = useState(0);
 
   // ResizeObserver to scale the canvas with fixed height, fluid width
   useEffect(() => {
@@ -30,29 +32,34 @@ export default function ChannelScreen({ channel, isTuning, isPowered, onTune }: 
     if (!screenEl) return;
 
     const updateScale = () => {
-      // Measure the screen's inner box (accounting for padding, border, etc.)
-      const rect = screenEl.getBoundingClientRect();
-      const computedStyle = window.getComputedStyle(screenEl);
-      const paddingTop = parseFloat(computedStyle.paddingTop);
-      const paddingBottom = parseFloat(computedStyle.paddingBottom);
-      const paddingLeft = parseFloat(computedStyle.paddingLeft);
-      const paddingRight = parseFloat(computedStyle.paddingRight);
+      // Measure the screen's inner box (clientWidth/clientHeight)
+      const innerW = screenEl.clientWidth;
+      const innerH = screenEl.clientHeight;
 
-      const availableWidth = rect.width - paddingLeft - paddingRight;
-      const availableHeight = rect.height - paddingTop - paddingBottom;
+      const BASE_H = CANVAS_SIZE.height;
+      const MIN_W = CANVAS_SIZE.minWidth;
+      const MAX_W = CANVAS_SIZE.maxWidth;
 
-      // Fixed height 600px, calculate scale from height
-      const newScale = availableHeight / CANVAS_SIZE.height;
+      // Calculate scale and canvas width per user's formula
+      let newScale = innerH / BASE_H;
+      let canvasW = innerW / newScale;
 
-      // Calculate fluid width: screenWidth / scale, clamped between min and max
-      const calculatedWidth = availableWidth / newScale;
-      const clampedWidth = Math.max(
-        CANVAS_SIZE.minWidth,
-        Math.min(CANVAS_SIZE.maxWidth, calculatedWidth)
-      );
+      if (canvasW > MAX_W) {
+        newScale = innerW / MAX_W;
+        canvasW = MAX_W;
+      } else if (canvasW < MIN_W) {
+        newScale = innerW / MIN_W;
+        canvasW = MIN_W;
+      }
+
+      // Calculate centered position
+      const left = (innerW - canvasW * newScale) / 2;
+      const top = (innerH - BASE_H * newScale) / 2;
 
       setScale(newScale);
-      setCanvasWidth(clampedWidth);
+      setCanvasWidth(canvasW);
+      setCanvasLeft(left);
+      setCanvasTop(top);
     };
 
     const resizeObserver = new ResizeObserver(updateScale);
@@ -125,30 +132,20 @@ export default function ChannelScreen({ channel, isTuning, isPowered, onTune }: 
       {isPowered && (
         <div
           ref={canvasRef}
-          className="screen-canvas-wrapper"
+          className="screen-canvas"
           style={{
             position: 'absolute',
-            top: '31px',
-            left: '34px',
-            right: '34px',
-            bottom: '34px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden',
+            left: `${canvasLeft}px`,
+            top: `${canvasTop}px`,
+            width: `${canvasWidth}px`,
+            height: `${CANVAS_SIZE.height}px`,
+            padding: '27px 30px 28px',
+            boxSizing: 'border-box',
+            transform: `scale(${scale})`,
+            transformOrigin: 'top left',
           }}
         >
-          <div
-            className="screen-canvas"
-            style={{
-              width: `${canvasWidth}px`,
-              height: `${CANVAS_SIZE.height}px`,
-              transform: `scale(${scale})`,
-              transformOrigin: 'center center',
-            }}
-          >
-            <ChannelContent channel={channel} onTune={onTune} />
-          </div>
+          <ChannelContent channel={channel} onTune={onTune} />
         </div>
       )}
     </div>

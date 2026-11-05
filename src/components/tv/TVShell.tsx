@@ -124,9 +124,10 @@ export default function TVShell() {
   // TV mode for desktop (>1023px)
   return (
     <div className="min-h-screen bg-tv-ink text-tv-cream">
-      <div className="tv-shell">
+      <div className="app-shell">
+        <div className="tv-shell">
         {/* Header */}
-        <header className="tv-header">
+        <header className="site-header">
           <div className="flex items-center gap-3">
             <span className="wordmark-dot" />
             <span className="font-tv-display text-[13px] font-bold tracking-[0.17em]">FAITH OT.</span>
@@ -270,6 +271,7 @@ export default function TVShell() {
           <span className="footer-rule" />
           <span>MADE IN NAIROBI / BROADCASTING WORLDWIDE</span>
         </footer>
+      </div>
       </div>
     </div>
   );
