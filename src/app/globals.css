@@ -9,15 +9,53 @@
   --gradient-mid: #ff7597;
   --gradient-mid-2: #ff87c3;
   --gradient-end: #9c6fde;
+
+  /* TV Design Tokens */
+  --tv-ink: #0b0b10;
+  --tv-cream: #f4f1ec;
+  --tv-indigo: #4b4fa8;
+  --tv-cornflower: #4a7be0;
+  --tv-pink: #f2b8d4;
+  --tv-lilac: #c9b6f0;
+  --tv-lilac-soft: #e9d1f3;
+  --tv-butter: #f7df8b;
+  --tv-night: #2e295e;
+  --tv-orange: #ff6b1a;
+  --tv-muted: #8c8b96;
+  --tv-line: rgba(244, 241, 236, 0.14);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* TV Colors */
+  --color-tv-ink: var(--tv-ink);
+  --color-tv-cream: var(--tv-cream);
+  --color-tv-indigo: var(--tv-indigo);
+  --color-tv-cornflower: var(--tv-cornflower);
+  --color-tv-pink: var(--tv-pink);
+  --color-tv-lilac: var(--tv-lilac);
+  --color-tv-lilac-soft: var(--tv-lilac-soft);
+  --color-tv-butter: var(--tv-butter);
+  --color-tv-night: var(--tv-night);
+  --color-tv-orange: var(--tv-orange);
+  --color-tv-muted: var(--tv-muted);
+  --color-tv-line: var(--tv-line);
+
+  /* TV Hard Shadows */
+  --shadow-hs-sm: 3px 3px 0 var(--tv-ink);
+  --shadow-hs: 5px 5px 0 var(--tv-ink);
+  --shadow-hs-lg: 7px 7px 0 var(--tv-ink);
+
+  /* Fonts */
   --font-sans:
     "Work Sans", var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
     sans-serif;
   --font-mono: var(--font-geist-mono);
+  --font-tv-display: var(--font-bricolage);
+  --font-tv-body: var(--font-dm-sans);
+  --font-tv-mono: var(--font-jetbrains);
 }
 
 body {
