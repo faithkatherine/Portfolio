@@ -1,0 +1,130 @@
+/* Simple breakpoint-based responsive layouts */
+/* Breakpoints: xl=1280px (desktop), lg=1024px (small desktop), tab=700px (tablet), <700px (phone) */
+
+/* ========== UNIVERSAL NAV STYLES (ALL LAYOUTS ≥700px) ========== */
+@media (min-width: 700px) {
+  .desktop-guide {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+
+  .desktop-guide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .desktop-guide-item {
+    flex: 0 0 auto;
+  }
+
+  /* Pink active pill - same at all widths */
+  .desktop-guide-item.active {
+    color: #351e34;
+    background: var(--tv-pink);
+    border-color: var(--tv-pink);
+    box-shadow: 0 3px 0 rgba(221, 167, 194, 0.16);
+  }
+
+  .desktop-guide-item.active .guide-number {
+    color: #8d426d;
+  }
+}
+
+/* ========== LAYOUT 1: DESKTOP (≥1280px) ========== */
+/* Default state - left rail + TV + context column */
+
+/* ========== LAYOUT 2: SMALL DESKTOP (1140-1279px) ========== */
+@media (min-width: 1140px) and (max-width: 1279px) {
+  .left-rail {
+    display: none;
+  }
+
+  .stage-layout {
+    grid-template-columns: minmax(0, 1fr) 220px;
+  }
+
+  .facts-column {
+    max-width: 220px;
+  }
+}
+
+/* ========== SHARED RULES FOR LAYOUTS 1-2 (≥1140px) ========== */
+
+/* Control panel fixed size - never shrinks */
+@media (min-width: 1140px) {
+  .control-panel {
+    flex: 0 0 104px;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* TV body has fixed aspect ratio (taller for more canvas height) */
+  .tv-body {
+    aspect-ratio: 2.1 / 1;
+  }
+
+  /* Bottom TV guide hidden in all layouts */
+  .tv-guide {
+    display: none;
+  }
+
+  /* Hide tablet context on desktop/small desktop */
+  .tablet-context {
+    display: none;
+  }
+}
+
+/* ========== LAYOUT 3: TABLET (700-1139px) ========== */
+@media (min-width: 700px) and (max-width: 1139px) {
+  /* Hide left rail, context column, and control panel */
+  .left-rail,
+  .facts-column,
+  .control-panel {
+    display: none !important;
+  }
+
+  /* TV bezel + screen only, full width with gutters */
+  .tv-body {
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    aspect-ratio: 1.7 / 1; /* Without control panel */
+  }
+
+  .stage-layout {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Context content below TV - tablet only */
+  .tablet-context {
+    display: block;
+    margin-top: 32px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+
+  .tv-guide {
+    display: none;
+  }
+}
+
+/* ========== LAYOUT 4: PHONE (<700px) ========== */
+@media (max-width: 699px) {
+  /* Hide desktop TV shell */
+  .tv-shell {
+    display: none;
+  }
+
+  /* Show phone scroll sections (will be implemented separately) */
+  .phone-scroll {
+    display: block;
+  }
+}
+
+/* Default: hide phone scroll on larger screens */
+@media (min-width: 700px) {
+  .phone-scroll {
+    display: none;
+  }
+}

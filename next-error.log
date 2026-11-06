@@ -1,0 +1,19 @@
+
+> portfolio@0.1.0 dev
+> next dev --turbopack
+
+   ▲ Next.js 15.5.2 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://172.17.37.47:3000
+
+ ✓ Starting...
+ ✓ Ready in 763ms
+ ○ Compiling /_not-found/page ...
+ ✓ Compiled /_not-found/page in 1892ms
+ GET / 404 in 2202ms
+ ✓ Compiled /favicon.ico in 124ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 412ms
+ ✓ Compiled / in 198ms
+ GET / 200 in 276ms
+ ✓ Compiled / in 45ms
+ GET / 200 in 114ms

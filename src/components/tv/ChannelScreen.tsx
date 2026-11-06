@@ -52,6 +52,9 @@ export default function ChannelScreen({ channel, isTuning, isPowered, onTune }: 
         canvasW = MIN_W;
       }
 
+      // Round scale to 3 decimals for better font rendering
+      newScale = Math.round(newScale * 1000) / 1000;
+
       // Calculate centered position
       const left = (innerW - canvasW * newScale) / 2;
       const top = (innerH - BASE_H * newScale) / 2;

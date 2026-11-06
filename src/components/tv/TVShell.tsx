@@ -5,27 +5,18 @@ import { useReducedMotion } from 'framer-motion';
 import { channels } from '@/data/tv-content';
 import ChannelScreen from './ChannelScreen';
 import ControlPanel from './ControlPanel';
-import ScrollableChannels from './ScrollableChannels';
+import PhoneScroll from './PhoneScroll';
 
 export default function TVShell() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTuning, setIsTuning] = useState(false);
   const [isPowered, setIsPowered] = useState(false);
   const [clock, setClock] = useState('00:00:00');
-  const [isScrollMode, setIsScrollMode] = useState(false);
   const prefersReducedMotion = useReducedMotion();
   const requestedIndex = useRef(0);
   const tuneTimer = useRef<number | null>(null);
   const isReducedMotion = prefersReducedMotion === true;
   const activeChannel = channels[activeIndex];
-
-  // Detect screen size for scroll mode (≤1023px)
-  useEffect(() => {
-    const checkScreenSize = () => setIsScrollMode(window.innerWidth <= 1023);
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
 
   // Power on animation
   useEffect(() => {
@@ -112,18 +103,12 @@ export default function TVShell() {
     return () => window.removeEventListener('keydown', onKeyDown);
   });
 
-  // Scroll mode for tablet and mobile (≤1023px)
-  if (isScrollMode) {
-    return (
-      <div className="min-h-screen bg-tv-ink text-tv-cream">
-        <ScrollableChannels />
-      </div>
-    );
-  }
-
-  // TV mode for desktop (>1023px)
   return (
     <div className="min-h-screen bg-tv-ink text-tv-cream">
+      {/* Phone layout (<700px) */}
+      <PhoneScroll />
+
+      {/* TV layouts (≥700px) */}
       <div className="app-shell">
         <div className="tv-shell">
         {/* Header */}
@@ -219,12 +204,11 @@ export default function TVShell() {
               <em className="text-tv-orange font-normal">Builder by instinct.</em>
             </h1>
             <p className="facts-summary">
-              3+ years · Nairobi · remote with UK and global teams. I like turning fuzzy problems into
-              clear, useful products.
+              Full-stack engineer in Nairobi, working remotely with UK and global teams. Web, mobile, backend and agentic AI, owned end to end.
             </p>
 
             <div className="stack-list" aria-label="Technology stack">
-              {['React', 'React Native', 'TypeScript', 'Django', 'GraphQL', 'PostgreSQL'].map((tag) => (
+              {['React', 'React Native', 'TypeScript', 'Python', 'Django', 'GraphQL', 'PostgreSQL', 'AWS'].map((tag) => (
                 <span key={tag} className="stack-chip">
                   {tag}
                 </span>
@@ -243,27 +227,23 @@ export default function TVShell() {
           </aside>
         </main>
 
-        {/* TV Guide */}
-        <nav className="tv-guide" aria-label="TV guide">
-          <div className="guide-heading font-tv-mono">TV GUIDE</div>
-          <div className="guide-scroll">
-            {channels.map((channel, index) => (
-              <button
-                key={channel.id}
-                className={`guide-item ${index === activeIndex ? 'active' : ''}`}
-                onClick={() => tuneTo(index)}
-                aria-label={`Tune to channel ${channel.number}, ${channel.short}`}
-                aria-current={index === activeIndex ? 'true' : undefined}
-                aria-pressed={index === activeIndex}
-              >
-                <span className="font-tv-mono guide-number">{channel.number}</span>
-                <span>{channel.short}</span>
-                {index === activeIndex && <span className="guide-live-dot" />}
-              </button>
+        {/* Tablet context (700-1139px only) */}
+        <div className="tablet-context">
+          <p className="text-sm text-tv-muted mb-4">
+            Full-stack engineer in Nairobi, working remotely with UK and global teams. Web, mobile, backend and agentic AI, owned end to end.
+          </p>
+          <div className="flex flex-wrap gap-2 justify-center mb-6">
+            {['React', 'React Native', 'TypeScript', 'Python', 'Django', 'GraphQL', 'PostgreSQL', 'AWS'].map((tag) => (
+              <span key={tag} className="inline-block px-3 py-1 text-xs font-tv-mono bg-tv-night text-tv-cream rounded">
+                {tag}
+              </span>
             ))}
           </div>
-          <div className="guide-hint font-tv-mono">ARROW KEYS TO TUNE</div>
-        </nav>
+          <button className="hire-button mx-auto" onClick={() => tuneTo(6)}>
+            <span>Hire me</span>
+            <span className="button-arrow">↗</span>
+          </button>
+        </div>
 
         {/* Footer */}
         <footer className="site-footer font-tv-mono">

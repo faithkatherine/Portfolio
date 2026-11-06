@@ -70,7 +70,7 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   gap: 24px;
-  padding-bottom: 22px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
 }
 .wordmark {
@@ -120,7 +120,7 @@ a:focus-visible {
   grid-template-columns: 0.6fr minmax(550px, 1.85fr) 0.75fr;
   gap: clamp(22px, 3.8vw, 65px);
   align-items: center;
-  padding: 53px 0 36px;
+  padding: 33px 0 36px;
 }
 .left-rail {
   align-self: stretch;
@@ -589,7 +589,7 @@ a:focus-visible {
   right: 22%;
 }
 .tv-caption {
-  margin: 15px 0 0;
+  margin: 5px 0 0;
   color: var(--muted-dark);
   font-size: 8px;
   text-align: center;
@@ -2545,39 +2545,39 @@ a:focus-visible {
   --hs-lg: 7px 7px 0 var(--ink-0);
 }
 
-/* Antennas: a tidy V on top of the TV that never reaches the header */
+/* Antennas: shorter, more slanted V on top of the TV */
 .antenna,
 .antenna-cap {
   pointer-events: none;
 }
 .tv-stage {
-  padding-top: 70px;
+  padding-top: 40px;
 }
 .antenna {
-  top: 66px;
+  top: 36px;
   left: 50% !important;
   right: auto !important;
-  width: 74px;
+  width: 52px;
   height: 6px;
   transform-origin: 0 50% !important;
 }
 .antenna-left {
-  transform: rotate(-145deg) !important;
+  transform: rotate(-155deg) !important;
 }
 .antenna-right {
-  transform: rotate(-35deg) !important;
+  transform: rotate(-25deg) !important;
 }
 .antenna-cap {
-  top: 16px;
+  top: 10px;
   width: 16px;
   height: 16px;
 }
 .antenna-cap-left {
-  left: calc(50% - 69px) !important;
+  left: calc(50% - 51px) !important;
   right: auto !important;
 }
 .antenna-cap-right {
-  left: calc(50% + 53px) !important;
+  left: calc(50% + 35px) !important;
   right: auto !important;
 }
 .tv-stage::before {
@@ -2995,6 +2995,104 @@ a:focus-visible {
   letter-spacing: 0.12em;
 }
 
+/* Playbook layout (CH 02) */
+.playbook-eyebrow {
+  color: #8f4b70;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.playbook-headline {
+  margin: 20px 0 18px;
+  color: #241b45;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  max-width: 520px;
+}
+
+.playbook-section {
+  margin-top: 16px;
+}
+
+.playbook-section-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #8f4b70;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.playbook-problem {
+  margin: 0;
+  color: #241b45;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 520px;
+}
+
+.playbook-approach {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 520px;
+}
+
+.playbook-approach li {
+  color: #241b45;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: flex;
+  gap: 8px;
+}
+
+.approach-number {
+  color: var(--orange);
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.playbook-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.playbook-box {
+  padding: 12px 14px;
+  background: var(--cream);
+  border: 2px solid var(--ink-0);
+  box-shadow: 4px 4px 0 var(--ink-0);
+}
+
+.playbook-box-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #8f4b70;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.playbook-box p {
+  margin: 0;
+  color: #241b45;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
 /* ---------- CH 03 · Building blocks ---------- */
 .blocks-layout {
   grid-template-columns: 1.18fr 0.82fr;
@@ -3390,9 +3488,45 @@ a:focus-visible {
 }
 .site-plan-body p {
   margin: 10px 0 0;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
-  color: #3a3160;
+  color: #241b45;
+}
+.plan-section {
+  margin-top: 14px;
+}
+.plan-section-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #8f4b70;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.plan-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.plan-chip {
+  padding: 4px 8px;
+  color: var(--ink-0);
+  background: var(--butter);
+  border: 1.5px solid var(--ink-0);
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.chip-sep {
+  opacity: 0.4;
+  font-weight: 400;
+}
+.plan-holds-up {
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-style: italic;
+  color: #51486f !important;
 }
 .plan-progress {
   display: flex;
@@ -3625,7 +3759,7 @@ a:focus-visible {
 .sleeve-light h3 {
   margin: 14px 0 0;
   font:
-    700 clamp(24px, 2.6vw, 34px) "Bricolage Grotesque",
+    700 34px "Bricolage Grotesque",
     sans-serif;
   letter-spacing: -0.055em;
   line-height: 0.95;
@@ -3633,9 +3767,31 @@ a:focus-visible {
 }
 .sleeve-role {
   font:
-    600 13px "DM Sans",
+    600 16px "DM Sans",
     sans-serif;
   color: #241b45;
+}
+.impact-box {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--cream);
+  border: 2px solid var(--ink-0);
+  box-shadow: 4px 4px 0 var(--ink-0);
+}
+.impact-value {
+  font:
+    600 28px "Bricolage Grotesque",
+    sans-serif;
+  color: var(--ink-0);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.impact-label {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #51486f;
+  line-height: 1.3;
 }
 .sleeve-specs {
   display: grid;
@@ -3652,16 +3808,20 @@ a:focus-visible {
 }
 .sleeve-specs dt {
   color: #8f4b70;
-  font-size: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
 }
 .sleeve-specs dd {
   margin: 0;
-  font-size: 9px;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--ink-0);
 }
 .sleeve-light .role-link {
   margin: 2px 0 0;
   color: var(--orange);
+  font-size: 13px;
   font-weight: 600;
 }
 .sleeve-stripes {
@@ -3698,6 +3858,7 @@ a:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  height: 70px;
   padding: 8px 10px 9px;
   background: #121019;
   border: 2px solid var(--ink-0);
@@ -3752,7 +3913,7 @@ a:focus-visible {
 .sleeve-dark .tape-one-liner {
   margin: 12px 0 10px;
   font:
-    600 15px "Bricolage Grotesque",
+    600 17px "Bricolage Grotesque",
     sans-serif;
   line-height: 1.15;
 }
@@ -3763,9 +3924,11 @@ a:focus-visible {
 .sleeve-dark ul {
   margin: 6px 0 0;
   padding-left: 16px;
-  font-size: 11px;
-  line-height: 1.42;
-  color: rgba(244, 241, 236, 0.9);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: #F4F1EC;
+  min-height: 80px;
 }
 .sleeve-dark li::marker {
   color: var(--pink);
@@ -3777,7 +3940,8 @@ a:focus-visible {
 .sleeve-dark .screen-tag {
   color: var(--cream);
   border-color: rgba(244, 241, 236, 0.45);
-  font-size: 8px;
+  font-size: 11px;
+  font-weight: 600;
   padding: 4px 6px;
 }
 
@@ -4436,7 +4600,7 @@ a:focus-visible {
   border-top: 2px dashed rgba(11, 11, 16, 0.2);
 }
 
-@media (min-width: 1101px) {
+@media (min-width: 1140px) {
   .app-shell {
     width: min(1480px, calc(100% - 56px));
     height: 100vh;
@@ -4634,7 +4798,7 @@ a:focus-visible {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1139px) {
   .app-shell {
     width: min(100% - 42px, 980px);
   }
@@ -5360,11 +5524,574 @@ a:focus-visible {
   font-weight: 600;
   letter-spacing: 0.04em;
 }
-@media (min-width: 1101px) {
+@media (min-width: 1140px) {
   .tv-stage {
-    padding-top: 70px !important;
+    padding-top: 40px !important;
   }
   .tv-body {
-    height: calc(100% - 74px) !important;
+    height: calc(100% - 44px) !important;
   }
+}
+
+/* ========== CH 04 & 05: CONTENT + READABILITY UPDATE ========== */
+
+/* CH 04: Experience Channel - Readability */
+.sleeve-dark .tape-one-liner {
+  font-size: 16px !important;
+  line-height: 1.3 !important;
+}
+
+.sleeve-dark ul {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+.sleeve-dark .screen-tag {
+  font-size: 9px !important;
+}
+
+/* CH 04: Highlights rotation UI */
+.highlights-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.highlights-label {
+  color: var(--butter);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.highlights-progress {
+  flex: 1;
+  height: 2px;
+  background: rgba(244, 241, 236, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.highlights-progress-bar {
+  height: 100%;
+  background: var(--butter);
+  transition: width 0.1s linear;
+}
+
+.highlights-list {
+  min-height: 72px;
+  margin: 6px 0 12px;
+  padding-left: 16px;
+}
+
+.highlights-list li {
+  margin-bottom: 6px;
+}
+
+/* CH 04: Deck buttons as controls */
+.deck-buttons {
+  display: flex;
+  gap: 5px;
+  margin: 16px 0 10px;
+}
+
+.deck-buttons button {
+  background: var(--cream);
+  border: 1.5px solid var(--ink-0);
+  color: var(--ink-0);
+  font-family: var(--font-tv-mono);
+  font-size: 11px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.deck-buttons button:hover {
+  background: var(--butter);
+  border-color: var(--ink-0);
+}
+
+.deck-buttons button:active {
+  transform: scale(0.95);
+}
+
+/* CH 05: Projects Channel - Readability */
+.jewel-tracks {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+.jewel-tracks .screen-tag {
+  font-size: 9px !important;
+}
+
+.jewel-art p {
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+}
+
+/* CH 05: Tracks rotation UI */
+.tracks-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.tracklist-label {
+  color: var(--butter);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.tracks-progress {
+  flex: 1;
+  height: 2px;
+  background: rgba(244, 241, 236, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.tracks-progress-bar {
+  height: 100%;
+  background: var(--butter);
+  transition: width 0.1s linear;
+}
+
+.tracks-list {
+  min-height: 72px;
+  margin: 6px 0 12px;
+}
+
+.tracks-list li {
+  margin-bottom: 6px;
+}
+
+/* CH 05: Controls update */
+.jewel-controls2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px;
+  background: rgba(11, 11, 16, 0.65);
+  border-radius: 0 0 4px 4px;
+}
+
+.jewel-controls2 .control-btn {
+  background: transparent;
+  border: 1px solid rgba(244, 241, 236, 0.3);
+  color: var(--cream);
+  font-family: var(--font-tv-mono);
+  font-size: 11px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 2px;
+}
+
+.jewel-controls2 .control-btn:hover {
+  background: rgba(244, 241, 236, 0.1);
+  border-color: rgba(244, 241, 236, 0.5);
+}
+
+.jewel-controls2 .view-project-link {
+  margin-left: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-tv-mono);
+  font-size: 9px;
+  color: var(--cream);
+  background: var(--indigo);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.jewel-controls2 .view-project-link:hover {
+  background: var(--cornflower);
+}
+
+.jewel-controls2 .progress-bar {
+  flex: 1;
+  height: 3px;
+  background: rgba(244, 241, 236, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-left: auto;
+}
+
+.jewel-controls2 .progress-bar span {
+  display: block;
+  height: 100%;
+  background: var(--butter);
+  transition: width 0.1s linear;
+}
+
+/* VHS tracking flicker animation */
+@keyframes vhs-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.vhs-tracking {
+  animation: vhs-flicker 0.15s ease-in-out;
+}
+
+/* ========== GLOBAL TYPE SCALE UPDATE (ALL CHANNELS) ========== */
+
+/* Mono labels/eyebrows: 11px min, letter-spacing .1em */
+.mono.channel-eyebrow,
+.mono.shortcut-label,
+.mono.highlights-label,
+.mono.tracklist-label,
+.mono.rack-label,
+.sleeve-specs dt,
+.hello-readme-body dt,
+.art-top span,
+.layer-header span,
+.call-board-header {
+  font-size: 11px !important;
+  letter-spacing: .1em !important;
+}
+
+/* Body text in left-side panels: 17-18px, line-height 1.4 */
+.hello-main-body .hello-lede,
+.sheet-body p,
+.layer-card-body,
+.sleeve-dark,
+.jewel-tracks,
+.call-board-body {
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+}
+
+/* Secondary body: 15px */
+.hello-summary {
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+  color: rgba(11, 11, 16, 0.7) !important;
+  margin: 10px 0 16px !important;
+}
+
+/* Right-side panels: +2px from current */
+.hello-readme-body dd {
+  font-size: 15px !important;
+}
+
+.hello-stat-tile span {
+  font-size: 13px !important;
+}
+
+.screen-tag {
+  font-size: 11px !important;
+}
+
+/* Buttons: 12-13px */
+.hello-shortcuts button,
+.hello-readme-body button,
+.deck-buttons button,
+.control-btn,
+.call-board button {
+  font-size: 12px !important;
+}
+
+/* Left-panel object labels: 12-13px */
+.folder-spine-label,
+.vhs-label-title,
+.cd-spine-title {
+  font-size: 12px !important;
+}
+
+/* Ticker: 11px */
+.hello-ticker,
+.ticker-track {
+  font-size: 11px !important;
+}
+
+/* Specific adjustments for readability */
+.jewel-tracks ol li {
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+}
+
+.sleeve-dark ul li {
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+}
+
+.think-opinion-body,
+.opinion-practice li {
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+}
+
+/* Hello channel specific */
+.hello-creds {
+  font-size: 11px !important;
+  letter-spacing: .1em !important;
+}
+
+.hello-creds b {
+  font-size: 13px !important;
+}
+
+/* Building blocks */
+.block-card-text {
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+}
+
+/* Off clock */
+.interest-card p {
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+}
+
+/* Contact */
+.contact-form label {
+  font-size: 11px !important;
+  letter-spacing: .1em !important;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 15px !important;
+}
+
+.contact-form button {
+  font-size: 13px !important;
+}
+
+/* ========== PART A: HELLO + CH 02 READABILITY ========== */
+
+/* Left window (faith_otieno.exe) */
+.hello-main-body .hello-lede {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #241B45 !important;
+  line-height: 1.45 !important;
+  margin-bottom: 0 !important;
+}
+
+.hello-summary {
+  display: none !important;
+}
+
+.mono.channel-eyebrow {
+  font-size: 12px !important;
+}
+
+/* PREVIOUSLY/NOW box */
+.hello-creds {
+  font-size: 12px !important;
+  padding: 16px !important;
+}
+
+.hello-creds b {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+/* Shortcut buttons */
+.hello-shortcuts button {
+  font-size: 13px !important;
+}
+
+.hello-shortcuts {
+  margin-top: 12px !important;
+}
+
+.shortcut-label {
+  margin-bottom: 8px !important;
+}
+
+/* Ticker */
+.hello-ticker {
+  font-size: 12px !important;
+}
+
+/* Heavier weights for dark text on light paper (CH 01 and CH 02) */
+.hello-main-body p,
+.sheet-body p,
+.opinion-quote,
+.opinion-body {
+  font-weight: 500 !important;
+  color: #241B45 !important;
+}
+
+.hello-main-body .mono,
+.sheet-header .mono,
+.opinion-tags {
+  font-weight: 600 !important;
+}
+
+/* CH 02 specific */
+.think-opinion-body {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  color: #241B45 !important;
+  line-height: 1.45 !important;
+}
+
+.opinion-practice li {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #241B45 !important;
+}
+
+.opinion-tags .screen-tag {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Removed duplicate/conflicting hello-shortcuts rules - see PART A section below */
+
+/* ========== PART A: GLOBAL READABILITY FIXES ========== */
+
+/* Canvas font smoothing */
+.channel-canvas {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ticker: orange #FF6B1A, weight 600, 12px */
+.hello-ticker,
+.ticker-track,
+.ticker-track span {
+  color: #FF6B1A !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
+
+/* Hello shortcuts: inline buttons, all 5 visible */
+.hello-shortcuts {
+  margin-top: 10px !important;
+  margin-bottom: 6px !important;
+}
+
+.hello-shortcuts div {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+.hello-shortcuts button {
+  display: inline-flex !important;
+  width: auto !important;
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+}
+
+.hello-main-body {
+  padding-bottom: 6px !important;
+}
+
+/* ========== TYPE SCALE: ALL 7 CHANNELS ========== */
+
+/* Eyebrows / mono labels: 12px, weight 600 */
+.mono.channel-eyebrow,
+.mono.shortcut-label,
+.mono.highlights-label,
+.mono.tracklist-label,
+.mono.rack-label,
+.mono.contact-label,
+.mono.contact-signoff,
+.sleeve-specs dt,
+.hello-readme-body dt,
+.art-top span,
+.layer-header span,
+.call-board-header,
+.hello-creds {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* Body text on paper/cream panels: 17-18px, weight 500, #241B45, lh 1.45 */
+.hello-main-body .hello-lede,
+.sheet-body p,
+.think-opinion-body,
+.opinion-body,
+.layer-card-body,
+.block-card-text,
+.call-board p {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+  color: #241B45 !important;
+  line-height: 1.45 !important;
+}
+
+/* Secondary body / bullets / tracklist / highlights: 15px, weight 500 */
+.opinion-practice li,
+.highlights-list li,
+.tracks-list li {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: #241B45 !important;
+  line-height: 1.45 !important;
+}
+
+/* Right-side detail values: 16px; labels 12px */
+.hello-readme-body dd {
+  font-size: 16px !important;
+}
+
+.sleeve-specs dd {
+  font-size: 16px !important;
+}
+
+/* Stat labels: 14px */
+.hello-stat-tile span {
+  font-size: 14px !important;
+}
+
+/* Tags: 11px weight 600 */
+.screen-tag,
+.opinion-tags .screen-tag,
+.sleeve-dark .screen-tag,
+.jewel-tracks .screen-tag {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Buttons: 13px */
+.hello-shortcuts button,
+.hello-readme-body button,
+.deck-buttons button,
+.control-btn,
+.call-line,
+.hire-button {
+  font-size: 13px !important;
+}
+
+/* Object labels: 12-13px weight 600 */
+.folder-spine-label,
+.cd-spine-title,
+.block-brick span {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* VHS shelf spine labels: 13px weight 700 */
+.vhs-label-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+/* Light text on dark panels: weight 500, #F4F1EC */
+.sleeve-dark,
+.sleeve-dark p,
+.sleeve-dark ul li,
+.jewel-art p,
+.jewel-art h3 {
+  font-weight: 500 !important;
+  color: #F4F1EC !important;
+}
+
+/* PREVIOUSLY/NOW values: 15px weight 600 */
+.hello-creds b {
+  font-size: 15px !important;
+  font-weight: 600 !important;
 }

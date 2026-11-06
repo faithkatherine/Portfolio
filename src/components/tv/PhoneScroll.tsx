@@ -1,0 +1,171 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
+import { channels } from '@/data/tv-content';
+import HelloChannel from './channels/HelloChannel';
+import ThinkChannel from './channels/ThinkChannel';
+import BlocksChannel from './channels/BlocksChannel';
+import ExperienceChannel from './channels/ExperienceChannel';
+import ProjectsChannel from './channels/ProjectsChannel';
+import OffClockChannel from './channels/OffClockChannel';
+import ContactChannel from './channels/ContactChannel';
+
+const DESIGN_WIDTH = 640;
+
+export default function PhoneScroll() {
+  const [activeId, setActiveId] = useState('hello');
+  const [flashingId, setFlashingId] = useState<string | null>(null);
+  const [canvasScale, setCanvasScale] = useState(1);
+  const prefersReducedMotion = useReducedMotion();
+  const sectionsRef = useRef<Map<string, HTMLElement>>(new Map());
+  const canvasWrapperRef = useRef<HTMLDivElement>(null);
+
+  // Canvas scaling
+  useEffect(() => {
+    const updateScale = () => {
+      if (canvasWrapperRef.current) {
+        const wrapperWidth = canvasWrapperRef.current.offsetWidth;
+        const scale = wrapperWidth / DESIGN_WIDTH;
+        setCanvasScale(scale);
+      }
+    };
+
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, []);
+
+  // Scroll spy with flash animation
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    sectionsRef.current.forEach((section, id) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveId(id);
+
+            // Flash animation on first view
+            if (!prefersReducedMotion && !section.dataset.viewed) {
+              section.dataset.viewed = 'true';
+              setFlashingId(id);
+              setTimeout(() => setFlashingId(null), 250);
+            }
+          }
+        },
+        { threshold: 0.4 }
+      );
+      observer.observe(section);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, [prefersReducedMotion]);
+
+  const scrollToChannel = (id: string) => {
+    const section = sectionsRef.current.get(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const setSectionRef = (id: string, el: HTMLElement | null) => {
+    if (el) {
+      sectionsRef.current.set(id, el);
+    } else {
+      sectionsRef.current.delete(id);
+    }
+  };
+
+  return (
+    <div className="phone-scroll">
+      {/* Sticky header with channel nav */}
+      <header className="phone-header">
+        <div className="flex items-center gap-3 px-4">
+          <span className="wordmark-dot" />
+          <span className="font-tv-display text-[13px] font-bold tracking-[0.17em]">FAITH OT.</span>
+        </div>
+        <nav className="phone-nav">
+          {channels.map((channel) => (
+            <button
+              key={channel.id}
+              className={`phone-nav-item ${activeId === channel.id ? 'active' : ''}`}
+              onClick={() => scrollToChannel(channel.id)}
+            >
+              <span className="font-tv-mono text-xs">{channel.number}</span>
+              <span className="text-xs">{channel.short}</span>
+            </button>
+          ))}
+        </nav>
+      </header>
+
+      {/* One continuous TV border */}
+      <div className="phone-tv-container">
+        <div className="phone-bezel">
+          <div className="phone-screen">
+            {/* Scrollable channel sections inside one screen */}
+            <div className="phone-sections">
+              {[
+                { id: 'hello', name: 'HELLO', number: '01', component: <HelloChannel onTune={() => {}} /> },
+                { id: 'think', name: 'HOW I THINK', number: '02', component: <ThinkChannel /> },
+                { id: 'blocks', name: 'BUILDING BLOCKS', number: '03', component: <BlocksChannel /> },
+                { id: 'experience', name: 'EXPERIENCE', number: '04', component: <ExperienceChannel /> },
+                { id: 'projects', name: 'PROJECTS', number: '05', component: <ProjectsChannel /> },
+                { id: 'offclock', name: 'OFF THE CLOCK', number: '06', component: <OffClockChannel /> },
+                { id: 'contact', name: 'CONTACT', number: '07', component: <ContactChannel /> },
+              ].map((channel) => (
+                <section
+                  key={channel.id}
+                  ref={(el) => setSectionRef(channel.id, el)}
+                  className="phone-section"
+                  data-channel-id={channel.id}
+                >
+                  {flashingId === channel.id && <div className="phone-flash" />}
+                  <div className="phone-label font-tv-mono">
+                    CH {channel.number} / {channel.name}
+                  </div>
+                  <div className="phone-canvas-wrapper" ref={canvasWrapperRef}>
+                    <div
+                      className="phone-canvas"
+                      style={{
+                        width: `${DESIGN_WIDTH}px`,
+                        transform: `scale(${canvasScale})`,
+                        height: `${100 / canvasScale}%`
+                      }}
+                    >
+                      {channel.component}
+                    </div>
+                  </div>
+                </section>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Context section outside the TV */}
+      <section className="phone-context">
+        <h2 className="phone-context-heading">
+          Engineer by trade.
+          <br />
+          <em className="text-tv-orange">Builder by instinct.</em>
+        </h2>
+        <p className="phone-context-body">
+          Full-stack engineer in Nairobi, working remotely with UK and global teams. Web, mobile, backend and agentic AI, owned end to end.
+        </p>
+        <div className="phone-stack-chips">
+          {['React', 'React Native', 'TypeScript', 'Python', 'Django', 'GraphQL', 'PostgreSQL', 'AWS'].map((tag) => (
+            <span key={tag} className="phone-chip">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <button className="phone-hire-button" onClick={() => scrollToChannel('contact')}>
+          <span>Hire me</span>
+          <span className="button-arrow">↗</span>
+        </button>
+      </section>
+    </div>
+  );
+}

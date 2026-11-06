@@ -41,7 +41,7 @@ export default function BlocksChannel() {
   return (
     <div className="blocks-channel h-full">
       <ChannelHeader eyebrow="03 / THE STACK" title="Building blocks." />
-      <p className="blocks-subtitle">Every product is the same stack of decisions.</p>
+      <p className="blocks-subtitle">Every product is the same stack of decisions. The tools change; the decisions don&apos;t.</p>
 
       <div className="blocks-layout" key={run}>
         {/* Construction scene */}
@@ -178,6 +178,30 @@ export default function BlocksChannel() {
             <span className="mono plan-name">{block.name.toUpperCase()}</span>
             <p>{block.text}</p>
 
+            <div className="plan-section">
+              <span className="mono plan-section-label">TOOLS I&apos;VE USED HERE</span>
+              <div className="plan-chips">
+                {block.reachFor.map((item, idx) => {
+                  const parts = item.split(' / ');
+                  return (
+                    <span key={idx} className="plan-chip">
+                      {parts.map((part, i) => (
+                        <span key={i}>
+                          {part}
+                          {i < parts.length - 1 && <span className="chip-sep"> / </span>}
+                        </span>
+                      ))}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="plan-section">
+              <span className="mono plan-section-label">IT HOLDS UP</span>
+              <p className="plan-holds-up">{block.holdsUp}</p>
+            </div>
+
             <div className="plan-progress" aria-label={`${builtCount} of 5 layers built`}>
               {blocks.map((b, i) => (
                 <button
@@ -192,7 +216,7 @@ export default function BlocksChannel() {
             </div>
 
             <div className="plan-actions">
-              <span className="mono block-hint">{done ? 'CLICK A BLOCK TO INSPECT' : 'BUILDING…'}</span>
+              <span className="mono block-hint">{done ? 'All five layers built. Different tools every time; the same layers every time.' : 'BUILDING…'}</span>
               <button className="rebuild-button" onClick={rebuild}>
                 ↻ Rebuild
               </button>

@@ -9,6 +9,7 @@ export default function ContactChannel() {
     { n: 1, label: 'Email', href: 'mailto:faithcathy12@gmail.com', primary: true },
     { n: 2, label: 'LinkedIn', href: 'https://www.linkedin.com/in/faith-catherine-otieno-92b708199/' },
     { n: 3, label: 'GitHub', href: 'https://github.com/faithkatherine' },
+    { n: 4, label: 'Résumé (download)', href: '#' },
   ];
 
   return (
@@ -87,8 +88,7 @@ export default function ContactChannel() {
           <span className="mono contact-label">THE OPEN CHANNEL</span>
           <h2>Have a good problem?</h2>
           <p>
-            I&apos;m always interested in thoughtful products, kind teams, and systems that make somebody&apos;s
-            day a little easier.
+            I&apos;m open to full-time roles, contracts and product partnerships, especially products that make life easier for people in Kenya and beyond. I usually reply within a day or two.
           </p>
 
           <div className="call-lines">

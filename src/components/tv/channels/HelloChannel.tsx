@@ -5,7 +5,7 @@ type HelloChannelProps = {
 };
 
 export default function HelloChannel({ onTune }: HelloChannelProps) {
-  const ticker = 'NAIROBI, KENYA · REACT · REACT NATIVE · TYPESCRIPT · DJANGO · GRAPHQL · POSTGRESQL · REMOTE WITH UK & GLOBAL TEAMS · NOW BUILDING PURSUIT · ';
+  const ticker = 'NAIROBI, KENYA · REACT · REACT NATIVE · TYPESCRIPT · PYTHON · DJANGO · GRAPHQL · POSTGRESQL · AWS · BEDROCK AGENTCORE · REMOTE WITH UK & GLOBAL TEAMS · NOW BUILDING PURSUIT · ';
 
   return (
     <div className="hello-channel hello-windows">
@@ -18,11 +18,11 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
         <div className="retro-window-body hello-main-body">
           <span className="mono channel-eyebrow">01 / HELLO</span>
           <h2>Hello, I&apos;m Faith.</h2>
-          <p>Full-stack engineer. I build products end to end, from the data model to the screen in your hand.</p>
+          <p className="hello-lede">Full-stack engineer with 3+ years shipping production web, mobile and AI features end to end, from system design and data modelling to deployment and monitoring. Most recently at a UK digital health platform; now building Pursuit and multi-agent systems on AWS.</p>
 
           <div className="hello-creds mono">
             <span>PREVIOUSLY</span>
-            <b>Feature Lead · Walking on Earth (UK)</b>
+            <b>Software Engineer · Walking on Earth (UK)</b>
             <span>NOW</span>
             <b>Founder · Pursuit HQ</b>
           </div>
@@ -52,8 +52,8 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
             <span>shipping to production</span>
           </div>
           <div className="hello-stat-tile">
-            <strong>6 roles</strong>
-            <span>intern to founder</span>
+            <strong>500+</strong>
+            <span>app downloads driven</span>
           </div>
           <div className="hello-stat-tile">
             <strong>1 app</strong>
@@ -80,7 +80,11 @@ export default function HelloChannel({ onTune }: HelloChannelProps) {
             </div>
             <div>
               <dt className="mono">CURRENTLY</dt>
-              <dd>Building Pursuit · learning data engineering on AWS</dd>
+              <dd>Building Pursuit · agentic AI on AWS · studying for AWS Data Engineer</dd>
+            </div>
+            <div>
+              <dt className="mono">FOCUS</dt>
+              <dd>Web · mobile · backend · data · AI agents</dd>
             </div>
           </dl>
           <button>Don&apos;t forget the résumé ↓</button>

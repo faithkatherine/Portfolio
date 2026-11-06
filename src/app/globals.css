@@ -3,6 +3,9 @@
 @import "tailwindcss/theme";
 @import "tailwindcss/utilities";
 
+/* Custom breakpoint for tablet (700px) */
+@custom-media --tab (min-width: 700px);
+
 :root {
   --background: #fafaf8;
   --foreground: #20201f;

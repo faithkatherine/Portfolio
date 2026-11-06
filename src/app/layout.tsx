@@ -6,6 +6,8 @@ import { DM_Sans } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import "./tv.css";
+import "./tv-responsive.css";
+import "./tv-phone.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,6 +54,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
+        <p>Test</p>
         {children}
       </body>
     </html>
