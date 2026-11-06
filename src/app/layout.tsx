@@ -54,7 +54,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} ${dmSans.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <p>Test</p>
         {children}
       </body>
     </html>
